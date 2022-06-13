@@ -1,0 +1,28 @@
+* {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    padding:10px;
+}
+
+.validate {
+    margin: 5px;
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 2px solid black;
+}
+
+.BTN {
+    text-decoration: none;
+    padding: 2px 16px;
+    font-size: 15px;
+    border: 2px solid black;
+    border-radius: 13px;
+    color: white;
+    background-color: black;
+    margin: 10px 10px;
+}
+
+.BTN:hover {
+    cursor: pointer;
+}

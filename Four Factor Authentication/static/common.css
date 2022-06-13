@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 97vh;
+    align-items: center;
+    justify-content: center;
+    background: center/cover no-repeat url(/static/profile.jpg);
+    z-index: -1;
+    opacity: 0.88;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    color: rgb(75 255 75);
+    font-size: 30px;
+}
+
+a {
+    text-decoration: none;
+    padding: 2px 16px;
+    font-size: 15px;
+    border: 2px solid black;
+    border-radius: 13px;
+    color: white;
+    background-color: black;
+    margin: 10px 10px;
+}
+
+a:hover {
+    background-color: rgb(70, 70, 70);
+}
+
+::placeholder {
+    color: rgb(241, 237, 237);
+    opacity: 1;
+}

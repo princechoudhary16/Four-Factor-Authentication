@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+{% block header %}
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <title>4 Factor Authentication</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> -->
+  <!-- <link rel="stylesheet" href="../static/styleIndex.css"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+{% endblock %}
+
+{% block mainContent %}
+<header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-white">This project has been created as a part of AI Project Component for AI A2 Slot</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Team Details</h4>
+          <ul class="list-unstyled">
+            <li class="text-white">Gopesh Kumar Pathak (20BCE2870)</li>
+            <li class="text-white">Anshuman Gupta (20BCE2119)</li>
+            <li class="text-white">Prince Choudhary (20BCE0478)</li>
+            <li class="text-white">G Aditya Kumar (20BCE2136)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+          stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2"
+          viewBox="0 0 24 24" focusable="false">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+          <circle cx="12" cy="13" r="4" />
+        </svg>
+        <strong>4 Factor Authentication AI Project</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<body>
+  <br>
+  <main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">4 Factor Authentication</h1>
+        <p class="lead text-muted">The project’s intention is to extend the usage of the biometric authentication to
+          web-based applications. This inspired us to employ a “Four Factor Authentication using AI”, (i.e., Password
+          verification, email-OTP verification, Face recognition and Speech recognition enabled security question). This can be implemented by Artificial Intelligence algorithms and 
+          employing some predominantly used computer vision techniques and speech recognition API’s.</p>
+        <p>
+          <a href="/login" id="log" class="btn btn-primary my-2">Login</a>
+          <a href="/register" id="regist" class="btn btn-secondary my-2">Register</a>
+        </p>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <h1 class="h3">Password Authentication</h1>
+                <p class="card-text">When a user first signs up for our website, they're asked to choose a username and
+                  password to identify themselves. Providing a password adds a simple layer of security over the other
+                  authentication methods.
+                  In an ideal world, the user would always pick a strong and unique password so that it's harder for an
+                  attacker to guess.
+                </p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <h1 class="h3">Email-OTP Verification
+                </h1>
+                <p class="card-text">The Email OTP method enables you to authenticate using the one-time password (OTP)
+                  that is sent to the registered email address. When you try to authenticate on any device, the server
+                  sends an email to the registered email address with the OTP. We can use this OTP for single
+                  authentication within a short time frame.
+                </p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <h1 class="h3">Face recognition</h1>
+                <p class="card-text">Face recognition is a technology capable of identifying or verifying a subject
+                  through an image, video or any audiovisual element of his face. Generally, this identification is used
+                  to access an application, system or service.
+                  It is a method of biometric identification that uses that body measures, in this case face and head,
+                  to verify the identity of a person through its facial biometric pattern and data.
+
+                </p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <h1 class="h3">Speech Recognition enabled Security Question</h1>
+                <p class="card-text">Security questions are a common method of identity authentication. When creating an
+                  account or signing up for a service online, users will confidentially share the answers to secret
+                  questions with a provider. We also added a special feature the speech-to-text to this module which
+                  allows the users to answer their security question using their microphone. In this we have used the
+                  web-speech API to achieve this feature.
+
+                </p>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  </main>
+
+
+  {% endblock %}
+  <!-- </div> -->
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

@@ -1,0 +1,64 @@
+* {
+    padding: 0px 0px;
+    margin: 0px 0px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: center/cover no-repeat url(/static/profile.jpg);
+    z-index: -1;
+    opacity: 0.88;
+}
+
+.row {
+    border: 2px solid black;
+    padding: 20px 60px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 44px;
+    color: black;
+}
+
+.Login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#log {
+    margin-top: 10px;
+    padding: 2px 16px;
+    font-size: 15px;
+    border: 2px solid black;
+    border-radius: 13px;
+    color: white;
+    background-color: black;
+}
+
+#regist {
+    margin-bottom: 10px;
+    padding: 2px 16px;
+    font-size: 15px;
+    border: 2px solid black;
+    border-radius: 13px;
+    color: white;
+    background-color: black;
+}
+
+#regist:hover,
+#log:hover {
+    background-color: rgb(70, 70, 70);
+}

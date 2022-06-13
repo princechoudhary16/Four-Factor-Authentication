@@ -1,0 +1,108 @@
+{% extends 'index.html' %}
+{% block title %} Welcome {% endblock %}
+
+{% block header %}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<title>Security Question</title>
+<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
+<link href="../static/css/login.css" rel="stylesheet">
+
+
+{% endblock %}
+
+
+{%block mainContent %}
+
+<body class="text-center">
+    <div class="form-signin">
+        <!-- <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+        <h1 class="h3 mb-3 font-weight-normal">Hi, {{name}}</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Answer the following security question</h1>
+        <h1 class="h5 mb-3 font-weight-bold">{{question}} ?</h1>
+        <label for="getans" class="sr-only">Answer</label>
+        <input type="text" name="getans" id="getans" class="form-control" placeholder="Answer" required>
+        <button onclick="check()" class="btn btn-lg btn-primary btn-block mt-3">Continue</button>
+        <h1 class="h6 font-weight-normal">Click on the below button and speak something...</h1>
+        <p><button class="btn btn-sm btn-warning" onclick="runSpeechRecognition()">Speech to
+                Text</button> &nbsp; <span id="action"></span></p>
+        <div id="output" class="hide"></div>
+        <a href="/logout" class="btn btn-block btn-info mt-3">Logout</a>
+    </div>
+</body>
+<script>
+    var question = {{ question| tojson}};
+    var answer = {{ answer| tojson}};
+    document.getElementById('question').innerHTML = question;
+    function check() {
+        var getans = document.getElementById('getans').value;
+        if (getans == answer) {
+            location.replace("/details");
+        }
+        else {
+            location.replace("/fail");
+        }
+    }
+</script>
+<script>
+    var answer = {{ answer| tojson}};
+    /* JS comes here */
+    function runSpeechRecognition() {
+        // get output div reference
+        var output = document.getElementById("output");
+        // get action element reference
+        var action = document.getElementById("action");
+        // new speech recognition object
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var recognition = new SpeechRecognition();
+
+        // This runs when the speech recognition service starts
+        recognition.onstart = function () {
+            action.innerHTML = "<small>listening, please speak...</small>";
+        };
+
+        recognition.onspeechend = function () {
+            action.innerHTML = "<small>stopped listening, hope you are done...</small>";
+            recognition.stop();
+        }
+
+        // This runs when the speech recognition service returns result
+        recognition.onresult = function (event) {
+            var transcript = event.results[0][0].transcript;
+            var confidence = event.results[0][0].confidence;
+            output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence * 100 + "%";
+            output.classList.remove("hide");
+            if (transcript == answer) {
+                location.replace("/details");
+            }
+            else {
+                location.replace("/fail");
+            }
+        };
+
+        // start recognition
+        recognition.start();
+    }
+</script>
+{% endblock %}

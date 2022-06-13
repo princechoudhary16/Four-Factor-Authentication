@@ -1,0 +1,60 @@
+{% extends 'index.html' %} {% block title %} Login {% endblock %}
+
+{% block header %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Face Authentication</title>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <link href="../static/css/face_auth.css" rel="stylesheet">
+</head>
+
+{% endblock %}
+
+{% block mainContent %}
+
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <main role="main" class="inner cover">
+            <form action="{{ url_for('welcome') }}" method="GET">
+                <h1 class="cover-heading">Keep your face infront of camera</h1>
+                <div class="input-field col s12 offset-s3" style="display: none;">
+                    <input value={{name}} placeholder="userName" id="userName" type="text" class="validate"
+                        name="userName" required />
+                </div>
+                <div class="input-field col s12">
+                    <img id="img" src="{{ url_for('video_feed') }}" />
+                </div>
+                <p class="lead">
+                    <input type="submit" id="BTN" class="btn btn-lg btn-primary" value="Continue" />
+                    <a href="/logout" class="btn btn-block btn-info mt-3">Logout</a>
+                </p>
+            </form>
+        </main>
+    </div>
+</body>
+{% endblock %}
+<script>
+    console.log(document.getElementById('img').src, 'tttt');
+</script>
